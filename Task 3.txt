@@ -1,0 +1,61 @@
+
+3 Task ( Cloud deployed version of the API endpoint )
+
+
+To deploy your API endpoints to the cloud, you can utilize cloud platforms like Heroku, AWS (Amazon Web Services), Google Cloud Platform, or Azure. Here's a general guide to deploying your Spring Boot application to Heroku:
+
+1. Prepare Your Spring Boot Application:
+   - Make sure your Spring Boot application is configured properly and all necessary dependencies are included in your `pom.xml` file if you're using Maven, or `build.gradle` if you're using Gradle.
+   - Ensure that your application has a production-ready database configuration. You may choose a database service provided by the cloud platform or use a managed database service like MongoDB Atlas, Amazon RDS, or Google Cloud SQL.
+
+2. Create a Heroku Account:
+   - Sign up for a free Heroku account if you haven't already: https://signup.heroku.com/
+
+3. Install the Heroku CLI:
+   - Download and install the Heroku CLI for your operating system: https://devcenter.heroku.com/articles/heroku-cli
+
+4. Login to Heroku:
+   - Open a terminal or command prompt and login to your Heroku account using the CLI:
+     
+     heroku login
+
+5. Prepare Your Application for Deployment:
+   - Create a `Procfile` in the root directory of your Spring Boot application. This file tells Heroku how to run your application. For example:
+
+     web: java -jar target/your-application-name.jar
+     
+   - Ensure that your application listens on the correct port. Heroku assigns a port dynamically, so you should read the port from the `PORT` environment variable.
+
+6. Initialize a Git Repository:
+   - If your project is not already under version control with Git, initialize a Git repository in your project directory:
+  
+     git init
+
+7. Add Heroku Remote:
+   - Add a remote to your Heroku application:
+
+     heroku git:remote -a your-heroku-app-name
+
+8. Commit Your Changes:
+   - Commit any changes you've made so far:
+     
+     git add .
+     git commit -m "Initial deployment to Heroku"
+    
+9. Deploy Your Application:
+   - Push your application to Heroku:
+     
+     git push heroku master
+     
+10. Open Your Application:
+   - Once the deployment is complete, you can open your application using:
+     
+     heroku open     
+
+11. Test Your API Endpoints:
+   - Verify that your API endpoints are accessible and functioning correctly on Heroku.
+
+12. Update README:
+   - Update your GitHub repository's README file with information about how to access and use the deployed API endpoints.
+
+Remember to configure any necessary environment variables, security settings, and database connections according to the requirements of your application and the cloud platform you're deploying to.
